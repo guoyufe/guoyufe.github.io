@@ -11,10 +11,19 @@
 *{
 margin: 0px;
 background-color: black;
+ font-size: 40px;
+ text-align: center;
 }
 header{
     background-color: blue;
-    text-align: content;
+    height: 20%;
+}
+main{
+    background-color: red;
+    height: 60%;
+}
+footer{
+    background-color: rgb(0, 255, 0);
     height: 20%;
 }
     </style>
@@ -33,9 +42,9 @@ footer
         document.body.style.height = innerHeight +'px';
         let learn=Math.floor(Math.random() * 200);
         let mainDom =document.querySelector('main');
-        mainDom.textContent ='你今天要学习的时间是:' + learn;
+        mainDom.textContent ='你今天要学习的时间是:' + learn +'分钟';
         console.log(learn);
-
+console.log("渲染web页面元素:" + (new Date() - bigbang) + "ms!")
     </script>
 </body>
 </html>
