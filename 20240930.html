@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    *{
+        bottom: 1px solid blue;
+        margin: 0px;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 40px;
+     }
+     body{
+        height: 99vh;
+     }
+     header{
+        background-color: aqua;
+        height: 20%;
+     }
+     main{
+        background-color: black;
+        height: 60%;
+     }
+     footer{
+        background-color: beige;
+        height: 20%;
+     }
+    </style>
+</head>
+<script>
+    let CET6 = [];
+    
+     let cet6String ="";
+     let cetArr = cet6String.split('\n');
+     for(let i=0;i<cetArr.length;i++){
+        let word = cetArr[i].split('\t');
+        let obj ={};
+        obj.en =word[0];
+        obj.pn =word[1];
+        obj.cn =word[2];
+        CET6.push(obj);
+     }
+     let Model = {
+        pos : 0,
+     }
+     Select('buttonfirstWord').onclick = function(){
+        Model.pos = 0;
+        Model.printWord();
+     }
+     Select('buttonrandWord').onclick = function(){
+       let a=Math.floor(Math.random() * cCET6.length);
+       Model.pos = a;
+       Model.printWord();
+    }
+    Select('buttonnextWord').onclick = function(){
+        if(Model.pos < CET6.length-1){
+            Model.pos++
+        }else{
+            Model.pos = 0;
+        }
+        Model.printWord();
+    }
+    Select('buttonlastWord').onclick = function(){
+        Model.pos = CET6.length-1;
+        Model.printWord();
+    }
+    function select(selector){
+            let dom = document.querySelector(selector);
+            return dom;
+        }
+    </script>
+<body>
+    <header>
+        我的项目1
+    </header>
+    <main>
+    <p id="en">单词</p></br>
+    <p id="pr">音标</p></br>
+    <p id="cn">中文翻译</p></br>
+        <button id="firstWord">第一个单词</button></br>
+        <button id="randWord">随机一个单词</button></br>
+        <button id="nextWord">下一个单词</button></br>
+        <button id="lastWord">最后的单词</button></br>
+    </main>
+    <footer>
+        2024年9月30日
+    </footer>
+    <script>
+      
+    </script>
+</body>
+</html>

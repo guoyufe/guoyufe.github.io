@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+*{
+    font-size: 40px;
+    margin: 0px;
+    text-align: center;
+}
+header{
+    height: 20%;
+    background-color: aquamarine;
+}
+main{
+    height: 60%;
+    background-color: blue;
+}
+footer{
+    height: 20%;
+    background-color: red;
+}
+    </style>
+</head>
+<body>
+    <header>
+                CET6-我的项目
+    </header>
+    <main>
+        <p id="en">单词</p>
+        <p id="pr">音标</p>
+        <p id="cn">中文翻译</p>
+        <button id="rand">随机单词</button>
+    </main>
+    <footer>
+        2024年9月23日
+    </footer>
+    <script>
+        let cet6String =""
+        let loadCet =select('botton#loadCet');
+        let randWord = select('botton#randWord');
+        loadCet.onclick = function(){
+          //  console.log('有效');
+           // fetch('cet6.txt')
+           // .then(res => res.text())
+          //  .then(txt => cet6String =txt);
+        };
+        randWord.onclick = function(){
+            let arr = cet6String.split('\r\n');
+            let rand = Math.floor(Math.random() * arr.length);
+            let str = arr[rand]
+            console.log(str);
+            let begin = str.indexOf('\t');
+            let end = str.lastIndexOf('\t');
+            let en = str.slice(0,begin);
+            let pr = str.slice(begin+1,end);
+            let cn = str.slice(end+1);
+            select('p#en').textContent = en;
+            select('p#pr').textContent = pr;
+            select('p#cn').textContent = cn;
+        }
+
+        function select(selector){
+            let dom = document.querySelector(selector);
+            return dom;
+        }
+    </script>
+</body>
+</html>
